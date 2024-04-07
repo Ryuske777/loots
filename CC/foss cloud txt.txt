@@ -1,0 +1,36 @@
+# share folder 192.168.10.7 all the required things are there
+
+# use mozilla
+
+# 192.168.10.3 foss  cloud link
+
+# username and password is admin
+
+# to upload iso file we have win scp 
+
+# open it --the moment you open it there will be a login window -- if possible select my workspace -- give root@192.168.10.3 -- and then login  -- username is root and pass is admin
+
+# once it successfully opens it -- left side local folder jisme iso file hai 
+
+# for right side -- intially at the root floder -- select var -- virtualization -- iso chooseable -- drage and drop the iso file to this folder in right hand side.
+
+# cut the winscp -- and press yes on whatever is prompted
+ 
+# first click on virtual machine -- profile -- create
+
+# in base profile -- choose liux - default -- i686 -- multi -- you will see uploaded iso file -- give name accordingly -- description me liux likh do -- memeory keep 3.5gb -- volume capacity - 30gb -- cpu 1 and utc in clock offset
+
+# once you created a profile 
+
+# go to vm templates -- create -- in profile choose linux, because we have created linux -- choose your profile -- multi - in vmpool (default)-- other things will automatically selected -- choose number of displays as 1 -- click on create
+
+# click on the image-- (hopefully)it will give a popup -- open it with remote viewer
+
+# once (VM)it is open -- install ubuntu-- downlaod updates while installing ubuntu-- erase disk and install ubuntu -- continue -- select keyboard layout -- country -- create a username and password --  etc etc
+
+# once it completely installed -- toggle disk to hard disk to avoid installing again and again.
+
+
+
+
+

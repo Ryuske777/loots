@@ -1,0 +1,149 @@
+first we are going to implement the google linux vm creation
+
+# create instances -- rename it (pankajlinuxvm) -- no change in that page keep it as linux / debain in boot disk -- in firewall allow http traffic(first one) -- create
+
+# once it is created -- click on arrow side to ssh -- open in browser window -- now the ssh terminal will open -- allow for authorization -- it is created -- run ls command to check
+
+------------------------------------- done ------------------
+
+now the windows vm creation 
+
+# create instance -- rename it (pankajwindowsvm) -- click change on boot disk -- select operating system as windows server [last me hai sabse] -- then select -- allow http traffic (first wala) -- create
+
+# RDP ke bagal ke arrow me -- select set windows password -- copy the generated password -- now download the RDP -- open the rdp -- enter the password and connect -- here is your virtual windows machine
+
+
+------------------------------------------ done ------------------------
+
+A “Hello world” website on IIS-Create an IIS web server VM using Compute Engine. 
+
+#  for this go to the virtual created windows mahchine --- neeche task bar me server manager hoga click on it -- go to manage -- add roles and features -- keep doing next -- bas change wahi karna jaha par iis sever ko choose karne ka option hoga bass  (roles me third last option hoga iis sever ) next and install -- once it is installed minimize it
+
+
+# open virtual machines file manager -- then open notepad -- untitled me hi code type kar do hello world ka -- then save it in documents -- the saved file should look in browser icon --- copy this file (index.html) -- go to this pc -- local disk c -- inetpub -- wwwroot -- yaha par paste kar do 
+
+
+code --
+
+<html>
+<body>
+<h1> hello world </h1>
+</body>
+<html>
+
+
+# again go to server manager -- go to tools  -- choose internet info service iis manage (just event viewer ke neeche) -- go to the left bar -- select your created vm --- default document -- here you will find the index.html file which you have created -- isko top me leke aao -- move up karte karte
+
+# after this -- copy the externel ip of windows vm -- paste it to the new tab -- your hello wordl output should be visible
+
+
+------------------------------------------- done ----------------------------
+
+
+A “Hello World” website on Apache. Create an Apache web server on a Linux VM. 
+
+# open linux vm -- ssh ke side me arrow -- open in browser mode -- authorize it -- then visit to 
+
+https://cloud.google.com/compute/docs/tutorials/basic-webserver-apache
+
+# this link -- you will find 3 lines of codes there -- copy and paste it in the linux shell -- 2nd code paste karne ke baad cltr+c daba dena  -- paste the 3rd code there
+
+# copy the external ip of linuxvm --- paste it in the new tab -- hello world is output
+
+--------------------------------------------------- done ------------------
+
+Transfer files to Windows VMs 
+
+# go to windows vm -- paste there any of the file
+
+------------------------- done -------------
+
+Transfer files to Linux VMs.
+
+# go to the linux shell interface -- first type ls to check any file -- click upload file button -- if the file is uploaded you will get a confirmation message in the right corner -- then check by typing ls command 
+
+---------------------------- done --------------
+
+Back up a VM's persistent disk
+
+
+# create instance -- name -> pankajpersistentdisk -- allow http traffic -- advance options -- disks -- add new disk -- 
+keep the name as it is (disk-1)-- you can take size as 50gb but that is optional -- create
+
+# your persistent disk has been created -- to check it -- go to left wala side bar -- storage -- disks --here you can see your disk-1 [this is your persistent disk which will be used for backups of vm data]
+
+
+-------------------------------- done ---------------
+
+Configure periodic backups with a snapshot schedule 
+
+
+# select snapshots -- create snapshots -- give it name accordingly -- select source disk as disk-1( which you havd created earlier) -- create
+
+# upar create snapshot schedula me jao -- dont do any changes -- direct create -- you will see you snapshot schedule 
+
+
+---------------------------------- done ----------------
+
+
+  Restore a boot disk from a snapshot
+
+# create anothe new disk-2 -- uske liye -- go to disk -- upar create a disk -- give disk source type to snapshot -- uske just neeche source snapshot me -- select snapshot-1 -- you can give size 50 gb -- create
+
+# you will se another disk (disk-2 ) in the disk pannel --- agar successfully create nahi hua hai to vm instance me jake jo persistent disk banayi thi use delete kar do aur disk-1 bhi kyuki usi ke saath me ye disk thi attach thi
+
+# once the disk-2 is created -- done 
+
+
+--------------------------------------- done -------------
+
+Restore a persistent disk from a snapshot 
+
+
+# create instance --- name-> pankajrestorepersistent --- allow http traffic -- advance option -- disk -- attach existing disk -- select disk-2 -- save -- create
+
+
+so basically in this scenario we have created a vminstance and attached a disk which has already been restored from snapshots (ie disk-2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

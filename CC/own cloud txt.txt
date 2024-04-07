@@ -1,0 +1,13 @@
+own cloud
+
+mam will give ip address
+
+(it is basically a storage as service)
+
+# once it opens go to last me 'system and domain settings'
+
+# username is 'Administrator' and password is 'admin@123' 
+
+# a new dashboard will open - create user -- and log out
+
+# on dashboard -- select application ke neeche ownCloud -- give username and passoword while you create while creating a new user-- then upload some files and ect etc
