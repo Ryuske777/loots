@@ -1,0 +1,16 @@
+this is really so simple
+
+# take router as WR300N
+
+# take pcs and laptops
+
+# in each pc and laptop --  change their network adapter to VMP300N -- and turn on
+  for laptops -- WPC300N -- and you will se the connection between router and devices has established
+
+# go to each device-- config -- wireless --  copy thier MAC address -- edit them by adding a  colon between them(har 2 char ke baad ek colon add kar dena taki mac filter slot me fit ho paye) -- and again copy them
+
+# rl on router -- gui -- wireless -- mac filter -- enable the mac filter status -- and paste the copied mac address in the mac o1 slot 
+
+# save changes
+
+# now you will see the connection has been broken to the specific deivce -- done.

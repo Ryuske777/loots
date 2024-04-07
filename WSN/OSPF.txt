@@ -1,0 +1,36 @@
+# this is similar to RIP only difference is you have to manually give the network permissions in the CLI mode
+
+# take pc and router-pt and switch-pt and make the topology
+
+# create 2 networks 192.168.1.0 and 192.168.2.0 conncect the router fe port and the pc ip and defualt gateway
+
+# complete the connection of 2 networks -- connect the 3 routers with automatic cable -- 2 routers will be connected to the 2 networks and 3 ruoter will be connected with each ohter
+
+# for port connection to the other routers-- give the class A ip address 10.0.0.0 nad 11.0.0.0 and 12.0.0.0
+
+# while giving the ip address in the router serial ports --- take care the consideration of clock mark-- if there is colock mark cofigure the ip addresss with the clock rate 64000-- and then give ip to the seria prot
+
+# on the other router where is not clock mark -- give the ip by selecting the clock rate not set -- then give ip to the serial prot
+
+# simple hai jaha clock mark hai waha clock rate 64000 select karo aur--- jaha nahi hai waha clock rate not set select karo
+
+# do this operation to all the 3 routers
+
+# now to give permission to other routers --  go to router cli mode and execute the following code 
+
+router 1 -- cli mode
+
+* agar kisi serail wagera ke andar hai to exit karo otherwise -->Router(config-if)#  ye default rahega to exit execute karo --- you will come to this -->Router(config)
+
+
+Router(config-if)#exit
+Router(config)#router ospf 1
+Router(config-router)#network 192.168.1.0 0.0.0.255 area 0
+Router(config-router)#network 10.0.0.0 0.255.255.255 area 0
+Router(config-router)#network 12.0.0.0 0.255.255.255 area 0
+Router(config-router)#exit
+Router(config)#
+
+# means jo jo bhi networks connected honge us router se us us ka network dede with the compliment subnet masks
+
+# do this same to other routers as well-- then travel packet from one pc to other pc -- it should take the shortest path whithout visiting the middle wala router.

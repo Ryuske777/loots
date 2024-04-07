@@ -1,0 +1,44 @@
+1]  firts program of wns --  the lawn sprinklers and the smoke detector
+
+
+# take server, access point, sprinkler, smoke detector and the vehicles
+
+# give them names accordingly
+
+# to give connection to access piont from sprinkler and smoke detector-- rl on access point -- config - port 1 -- change ssid name default to cisco
+
+# rl on sprinkler -- config - wireless - ssid home gateway to cisco
+
+# rl on smoke detector -- config - wireless - ssid home gateway to cisco
+
+# now you will see the dashed line connection between them
+
+# connect the server to access point with autmatic wire
+
+# rl on sever -- desktop -- 1st option ip configuration -- it shoudl be static -- give ipv4 address 1.0.0.1 -- it will take subnet mask abutomatic
+
+#rl sprinler -- config -- wireless -- ip cofiguration me static kar do -- fir ipv4 add de do 1.0.0.2 -- automatic subnet mask will take
+
+#same on smoke detector -- give ipv4 add 1.0.0.3
+
+# rl on server -- sevices -- ioT -- registration sever will be off turn it on -- 
+
+# rl on sever -- desktop -- web browser -- url me 1.0.0.1 de do -- sign up -- username and pass admin daal do
+
+# rl on sprinkler -- config -- settings -- ioT severme none ke jagah remote sever click karo -- server address is 1.0.0.1 and user & pass is admin -- connect pe click karo
+
+# same goes for smoke detector as well
+
+# rl on sever -- desktop -- web browser -- login with 1.0.0.1 -- you will see 2 entries -- upar conditions peclick karo -- add rule -- name-> smoke on-- select smoke -- select level -- >= -- give value 0.4 -- then necche slecet sprinkler -- status -- true
+
+# again  add rule -- name-> smoke off-- select smoke -- select level -- < -- give value 0.2 -- then necche slecet sprinkler -- status -- flase
+ 
+# your 2 entries with setting will be created
+
+# press alt and tap on old cars they will turn on and the sprinklers should turn on as well.
+
+# to monitor live -- rl on sever -- desktop -- web browser -- login 1.0.0.1 -- you will see the level of smoke in red indication circle
+
+
+
+

@@ -1,0 +1,57 @@
+# take 2 pcs each and routers(3) correspondigly [router1841] [switch 2960 24TT] [simple pc]
+
+# add the pcs to the router by automatic wire
+
+# connect them make a topology 
+ 
+# while connecting with the router take care of the prots which you are connecting
+
+# rl on router --- config -- intefaces me you will see only 2 ports -- go to physical -- select WIC -2T -- turn off the router -- drage the port module in the router -- turn on the router -- you will see device is booting 
+
+# do the same to other router as well
+
+# now connect the router with each other using automatic wire -- while connecting take care of the serial ports 
+
+# now in the router the prot in which the 2pcs are connected -- config -- fastethernet0/0 me ip address me ip address 192.168.1.1 de do -- it will take subnet mask atumatically -- turn on -- you will se the green signal on line -- label it ip
+
+# go to the individual pcs -- desktop -- ip configuration -- give ip as 192.168.1.2 and for the other pc 192.168.1.3 and the defaul gateway will be 192.068.1.1 -- label it
+
+# go to the second router -- do the same ip 192.168.2.1 -- give the ip to pcs as 192.168.2.2 and 192.168.2.3 and the default gateway -- 192.168.2.1(same as router ip)
+
+# do the same for third router -- 192.168.3.1 -- for pcs 192.168.3.2 and 192.168.3.3 and defualt gateway 192.168.3.1
+
+# note the fastethernet0/0 prot is only for the routers own netwrok, 
+
+# now the each router in connected to its own network its time to connect router with other router-- to connect router with each other we will have to give them a separate ip address and networks class A ip address.
+
+# connect them automatic cable 
+
+# first router serial port 0/0 -- give ip 10.0.0.1 and the other connectign router second router serial port 0/0 -- give ip 10.0.0.2 -- turn them on -- label them
+
+# to connect with the second router to the third router -- second router serial prot 0/1 -- give ip 11.0.0.1 -- third router serial port 0/0 -- give ip 11.0.02
+
+# now you will see the green mark everywhere
+
+# we will have to give the permission to each router with other availabe networks
+
+# first router -- RIP -- give all the 5 networks availabe with the endig 0 example 11.0.0.0 and 12.0.0.0 and 192.168.1.0 and 192.168.2.0 , 192.168.3.0
+
+# same do for second router and the third router as well ( while giving RIP each ip network should end with 0 )
+
+# we have completed the basic network connection
+
+# its time to connect router 1 and router 3 directly
+
+# just give the anotehr network as 12.0.0.0 and their each port 12.0.0.1 and 12.0.0.2 repective to ports
+
+# update the each router RIP table with adding the one new address total there will be 6 networks in each router
+
+# check wether it is taking the shortest path -- simulate it -- done
+
+
+
+
+
+
+
+

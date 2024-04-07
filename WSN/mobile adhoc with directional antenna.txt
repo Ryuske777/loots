@@ -1,0 +1,33 @@
+motion detector
+
+
+# again a simple task -- choose AC, fan , light, window and one motion detector sensor and one mobile phone [smartphone pt]
+
+# choose one homegateway device [DLC 100 Home Gateway0]
+
+# go to each device -- config -- IoT server -- select Home gateway -- ye sab pe karo-- you can change name as per your wish
+
+# then devices should automatically connect to the home gateway deivce[DLC 100 Home Gateway0] -- but if they dont connect --- then config --- choose advance option in bottom  --- i/o config -- network adapter should be PT-IOT-NM-1W-- ise choose karo then all the devices would atumatically connect to the home gateway.
+
+# do this to all devies
+
+# the mobile phone wont be connected to connect this --- rl on home gateway device -- config -- wireless -- copy the ssid present over there
+
+# rl on smartphone -- config -- wireless0 -- you will se ssid 'default' -- change this to copied ssid -- once you do this you will see the smartphone is also connected
+
+# now you can see all the devices are connected 
+
+# rl on smartphone -- desktop -- select iot monitor -- here you will find the username and password and the default ip (iot server address)
+
+# copy that defaul ip -- go to the browser -- paste the ip -- enter username and password -- you will see here all the present devices in the dashboard
+
+# go to conditions -- add -- name-> window on -- then neeche drop down to sensor -- on -- is true.  then neeche -- then set -- drop down window -- on -- true. then ok  [this is the condition only for window on you will have to give the conditon for window off as well]
+
+# again add -- name-> window off -- then neeche sensor on is flase then set window on is flase [this condition is for window off]
+
+# now press alt and move the cursor near to the motion detector -- the detector will turn on and the connected device [window] will turn on ---- after some time them motion detecor will turn off automaticallly and the window will turn off
+
+# this way you can add devices and make them work according to motion detecor sensor.
+
+
+

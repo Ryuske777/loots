@@ -1,0 +1,36 @@
+# take some devices --- router [WRT300N], hubPT, 1841 router, smartphone PT, cell tower, central-office-sever , server PT
+
+# the smartphone will be connected automatically to WRT300N and cell tower wirelessly
+
+# use automatic cable to conncet the following devices --
+  
+   connect wrt300n to hubPT 
+   connect hubPT to 1841 router
+   1841 router to server pt (it will be dashed line connection)
+   hubPT to central office sever
+   connect cell tower to central office server (a zigzag line)
+
+# everytihg will be connected except central office sever to the server PT direclty
+
+# geometry -> at the left side there wil be smartphone and wt300n andl niche celltower
+              at the middle side upar hub pt and niche central office sever
+              at the right side upar router 1841 and niche serverPT
+
+# there are total 2 networks 20.0.0.0 and 21.0.0.0
+
+# rl on wr300n -- config -- internet -- select static --and give ip address as 20.0.0.2 and niche default gateway as 20.0.0.1
+
+#  rl on router 1841 -- config -- fastethernet 0/0 give ip as 20.0.0.1 and click on
+                                  fastethernet 0/1 give ip as 21.0.0.1 and click on
+
+# rl on server pt -- config -- setting -- gateway/DNS IPv4 me default gateway 21.0.0.1 ye ip daalo
+                               then fastehternet -- ip configuration me ipv4 address 21.0.0.2 ye daalo -- click on
+
+# now you will see all the green dots there
+
+# now try to send packet from smartphone pt to server pt [it may fail but try again]
+
+# done
+
+
+

@@ -1,0 +1,54 @@
+ #  take lawn sprinklers *4(means 4 baar lena hai), 2 water level monitors, DLC100 home gateway, smartphone PT.
+
+# 2 sprinklers upar and uske saath one water level monitor and same neeche usi tarah
+
+# color or not that is optional
+
+# change the name of each devices for your ease
+
+# rl on home gateway -- config -- wireless -- you will see ssid copy that. then uske just neeche -- authentication me select wpa2-psk and give psk pass phrase as 'getconnect'
+
+# rl on sprinkler1 -- go to advance setting --i/o config-- check for PT-IOT-NM-1W -- [do this for every connected device]
+
+# rl on sprinkler1 -- config -- setting -- last me iot server me home gateway select kar lo [ do this for all connected devices]
+
+# rl on sprinkler 1 -- config -- wireless0-- authentication -- authentication me select wpa2-psk and give psk pass phrase as 'getconnect'
+
+# then you will see the connected bar
+
+# same operation other devies me perform karo
+
+# clk on smartphone -- config --  wireless -- you will see ssid as default change it to the copied one 'HomeGateway'  -- then usi ke just neeche --  authentication me same operation pass as getconnect
+
+# now you will se the connected lilne in the smartphone as well
+
+# open smartphone browser -- login and you will be able to see all the connected devices
+
+# go to conditions -- add -- name-> top sprinklers on --- water level 1 water level < 5 cm
+then set -- sprinkler 1 status to ture  -- thren click action button sprinkler 2 status to ture --clk ok [spr 1 and spr 2 both true simultaneously]
+
+# again add --  name-> top sprinklers off --- water level 1 water level > 5 cm
+then set -- sprinkler 1 status to false  -- thren click action button sprinkler 2 status to false --clk ok [spr 1 and spr 2 both flase simultaneously]
+
+# ab ye dono spr1 and spr2 ka hogay on and off with resepct to water level sensor 1
+
+# again add --  name-> bottom sprinklers on --- water level 2 water level < 5 cm
+then set -- sprinkler 3 status to true  -- thren click action button sprinkler 4 status to true --clk ok [spr 3 and spr 4 both true simultaneously]
+
+# again add --  name-> bottom sprinklers off --- water level 2 water level < 5 cm
+then set -- sprinkler 3 status to false  -- thren click action button sprinkler 4 status to false --clk ok [spr 3 and spr 4 both flase simultaneously]
+
+# after setting it all kisi bhi 1 sprinkler ko chalu karo --- fir water level 5 ke upar jayega to sab band ho jayenge -- jab 5 ke neeche ayega to sab wapas chaly ho jayenge
+
+# done
+
+
+
+
+
+
+
+
+
+
+
