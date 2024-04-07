@@ -1,0 +1,50 @@
+KNN Classification
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.datasets import load_breast_cancer
+from sklearn.metrics import confusion_matrix
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.model_selection import train_test_split
+import seaborn as sns
+breast_cancer_df=load_breast_cancer()
+x=pd.DataFrame(breast_cancer_df.data,columns=breast_cancer_df.feature_names)
+x.head()
+
+x=x[["mean area","mean compactness"]]
+x.head()
+
+y=pd.Categorical.from_codes(breast_cancer_df.target,breast_cancer_df.target_names)
+print(y)
+
+y=pd.get_dummies(y,drop_first=True)
+print(y)
+
+X_train,Xtest,Y_train,Y_test=train_test_split(x,y,random_state=1)
+knn=KNeighborsClassifier(n_neighbors=5,metric="euclidean")
+knn.fit(X_train,Y_train)
+
+
+sns.set()
+sns.scatterplot(x="mean area", y="mean compactness", hue="benign", data=X_test.join(Y_test, how="outer"))
+
+
+cf = confusion_matrix(Y_test, y_pred)
+print(cf)
+
+y_pred = knn.predict(X_test)
+plt.scatter(X_test["mean area"], X_test["mean compactness"], c=y_pred, cmap="coolwarm", alpha=0.7)
+
+labels=["True Negative", "False Positive", False Negative", "True Positive"]
+labels.np.asarray(labels).reshape(2,2)
+categories=["zero","one"]
+ax=plt.subplot()
+
+sns.heatmap(cf, annot=True, ax=ax)
+ax.set_xlabel("predicted values")
+ax.set_ylabel("actual values")
+ax.set_title("confusion matrix")
+
+ax.xaxis.set_ticklabels(["Malignant", "Benign"]) 
+ax.yaxis.set_ticklabels(["Malignant", "Benign"]) 
