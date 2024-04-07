@@ -1,0 +1,43 @@
+we ae starting with the installation 
+
+# go to omnet -5.6.2 -- mingwenv -- click on it -- and install
+
+# a new interface will open -- ./configure -- make -- and last me type omnetpp
+
+#  install inet -- create a new folde pracitce -- copy the oment ka file in pracitce floder 
+
+# browse -- select the practice folder -- launch -- a new bubbly interface will open -- minimize it -- dono check box hata do 
+
+# on the left bar -- import projects -- general -- exicting projects into workspace -- input field ke bagal me -- browse -- select practice folder -- finish
+
+# you will see inet open there -- examples-- adhoc -- rl on adhoc -- new -- folder -- give name prac 4 -- finish 
+
+# rl on prac 4 -- new -- NED file --  give name ned1.ned -- next -- generate wizards -- first wala adhoc -- next finish 
+
+# on the right bar -- find adhocHost (inet.node.inet)-- select it and drag it in host box -- keep the new host (adhoc)and delete the old host 
+
+# find ieee80211ScalarRadioMedium (inet...) then drag it to the main box
+
+# find ipv4networkConfigurator and drage it the main box
+
+# jo pahle ke items the unhe delete kar do -- sirf new items hi rehne do
+
+# ab neeche source me jao -- package adhoc.prac4 ke alwa jitne pe bhi red dot aa rha hai unhe delete kar do lines ko
+
+# package adhoc.prac4 -- rename it to package inet.examples.adhoc.prac4
+
+# on the left bar -- adhoc -- iee80211 -- click on Net80211.ned  -- in this file copy the line which has radioMedium -- and copy the full block -- then go to ned1.ned -- change the LayeredScalarRadioMedium wala block with the copied content
+
+# after this in ned1.ned tab-- remove the line which has LayeredRadioMedium etcc;
+
+
+
+# hopefully there should not be any error -- then save it
+
+# in ned1.ned tab -- the line which has ipv4networkconfigurator -- remove the ipv4network part and keep it as configurator (with small s)
+
+# prac 4 -- omnetpp --  build project -- once it is built
+
+# omnetpp -- run as -- omnet simulation -- hopefully it should work
+
+# the window wll come -- maximize it -- press run symbol for final run (play button)
