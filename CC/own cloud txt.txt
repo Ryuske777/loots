@@ -1,13 +1,17 @@
 own cloud
 
-mam will give ip address
+mam will give IP address
 
 (it is basically a storage as service)
 
-# once it opens go to last me 'system and domain settings'
+# Once you open the IP you will see an interface call it as home interface or home dashboard or home page
+
+# Once it opens go to last me 'system and domain settings' [located at the second row left me] and click on it
 
 # username is 'Administrator' and password is 'admin@123' 
 
-# a new dashboard will open - create user -- and log out
+# A new dashboard will open - create user -- give all the necessary information to create the user account 
 
-# on dashboard -- select application ke neeche ownCloud -- give username and passoword while you create while creating a new user-- then upload some files and ect etc
+# once you have created the user account then log out from the admin panel -- you will see the home dahshboard again
+
+# on home dashboard -- select application ke neeche ownCloud [starting me hi hoga 1st wala]-- give username and passoword which you create while creating a new user account-- user account will open and ---then you can upload some files and downlaod whatever you want.
