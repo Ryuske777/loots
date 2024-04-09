@@ -1,0 +1,209 @@
+Prac 1
+
+1.Create a database Company, Create a Collection Staff and Insert ten documents in it
+with fields: empid,empname,salary and designation.
+• Display all documents in Staff and display only empid and designation.db
+• Sort the documents in descending order of Salary
+• Display employee with designation with “Manager” or salary greater than
+Rs. 50,000/-.
+• Update the salary of all employees with designation as “Accountant” to
+Rs.45000.
+• Remove the documents of employees whose salary is greater than
+Rs100000
+
+
+
+
+
+
+
+show dbs
+admin       40.00 KiB
+config     108.00 KiB
+employees   72.00 KiB
+local       72.00 KiB
+pankajdb> use company
+switched to db company
+company> db.createCollection("staff")
+{ ok: 1 }
+company> show collections
+staff
+
+
+1. Create a database Company, Create a Collection Staff and Insert ten documents
+in it with fields: empid, empname, salary and designation.
+
+
+
+db.Staff.insertMany([
+  { empid: 1, empname: "John Doe", salary: 60000, designation: "Manager" },
+  { empid: 2, empname: "Jane Smith", salary: 55000, designation: "Accountant" },
+  { empid: 3, empname: "Bob Johnson", salary: 70000, designation: "Engineer" },
+  { empid: 4, empname: "Alice Williams", salary: 80000, designation: "Manager" },
+  { empid: 5, empname: "Charlie Brown", salary: 45000, designation: "Salesperson" },
+  { empid: 6, empname: "Emma Davis", salary: 90000, designation: "Accountant" },
+  { empid: 7, empname: "David Wilson", salary: 75000, designation: "Engineer" },
+  { empid: 8, empname: "Sophia Miller", salary: 60000, designation: "Manager" },
+  { empid: 9, empname: "Daniel Smith", salary: 120000, designation: "CEO" },
+  { empid: 10, empname: "Olivia Brown", salary: 48000, designation: "Salesperson" }
+]);
+
+
+
+# • Display all documents in Staff and display only empid and designation.db
+
+
+ db.Staff.find({},{ empid: 1 , designation:1,_id:0});
+
+
+
+# Sort the documents in descending order of Salary
+
+db.Staff.find({}).sort({salary: -1});
+
+
+
+
+# Display employee with designation with “Manager” or salary greater than
+Rs. 50,000/-.
+
+db.Staff.find({ $or: [ {designation: "Manager" }, { salary: { $gt: 50000}}]});
+
+
+
+
+# Update the salary of all employees with designation as “Accountant” to
+Rs.45000.
+
+db.Staff.updateMany({ designation: "Accountant"}, { $set: { salary : 45000} } );
+
+db.Staff.find({ designation: "Accountant"});
+
+
+
+# Remove the documents of employees whose salary is greater than Rs100000.
+
+db.Staff.deleteMany({ salary: {$gt: 100000}});
+
+db.staff.find({})
+
+
+
+------------------------------------------------------------------------------------------------------------------
+
+
+Prac 2 
+
+2. Create a database Institution. Create a Collection Student and Insert ten documents in
+it with fields: RollNo,Name,Class and TotalMarks(out of 500).
+• Display all documents in Student.
+• Sort the documents in descending order of TotalMarks.
+• Display students of class “MSc” or marks greater than 400.
+• Remove all the documents with TotalMarks<200
+
+
+
+
+
+company> show dbs
+admin       40.00 KiB
+company     72.00 KiB
+config     108.00 KiB
+employees   72.00 KiB
+local       72.00 KiB
+company> use institution
+switched to db institution
+institution> db.createCollection("Student")
+{ ok: 1 }
+institution>
+
+
+
+
+
+db.Student.insertMany([
+  { RollNo: 1, Name: "Alice", Class: "BSc", TotalMarks: 480 },
+  { RollNo: 2, Name: "Bob", Class: "MSc", TotalMarks: 420 },
+  { RollNo: 3, Name: "Charlie", Class: "BSc", TotalMarks: 350 },
+  { RollNo: 4, Name: "David", Class: "MSc", TotalMarks: 480 },
+  { RollNo: 5, Name: "Emma", Class: "BSc", TotalMarks: 300 },
+  { RollNo: 6, Name: "Frank", Class: "MSc", TotalMarks: 450 },
+  { RollNo: 7, Name: "Grace", Class: "BSc", TotalMarks: 420 },
+  { RollNo: 8, Name: "Henry", Class: "MSc", TotalMarks: 400 },
+  { RollNo: 9, Name: "Ivy", Class: "BSc", TotalMarks: 250 },
+  { RollNo: 10, Name: "Jack", Class: "MSc", TotalMarks: 490 }
+]);
+
+
+
+db.Student.find({})
+
+
+
+
+# Sort the documents in descending order of TotalMarks.
+
+db.Student.find({}).sort({TotalMarks: -1})
+
+
+
+
+# • Display students of class “MSc” or marks greater than 400
+
+db.Student.find({ $or: [{ Class:"MSc"}, { TotalMarks: { $gt :400 }}]});
+
+
+
+# Remove all the documents with TotalMarks<200
+
+db.Student.deleteMany({TotalMarks: { $lt: 200}});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

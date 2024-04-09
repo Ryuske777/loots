@@ -1,0 +1,292 @@
+c drive -> user-> admin -> mongodb -> search for bin folder and opne it -> once you found go to path and write cmd -> then write 'mongod' and again open the cmd with tha same path of bin folder and write 'mongo' --> and execute it
+
+but here i am using 'mongosh' and then go to mongodb compass for actual app
+
+
+------------------------------------------------------------------------------------------------------------------------------
+
+mongod   --used for server (server terminal)
+
+database -> collection -> document
+
+show dbs --> to show present databases
+
+# CRUD operations
+
+C - Create
+R - Read (fetch data)
+U - update
+D — Delete
+
+-------------------------------------------------------------------------------------------------
+
+
+use practicedb -> to create a new database or use existing database (  use _db  )
+
+
+db.createCollection("justcollection") -> to create a new collection in a db [ db.createCollection("---")    ]
+
+-------------------------------------------------------------------------------------------------------
+
+
+
+// Switch to the database
+use mydatabase
+
+// Delete a collection (for example, 'myCollection')
+db.myCollection.drop()
+
+// Delete the current database
+db.dropDatabase()
+
+
+
+test> use practicedb
+switched to db practicedb
+practicedb> db.dropDatabase()
+{ ok: 1, dropped: 'practicedb' }
+practicedb> show dbs
+admin       40.00 KiB
+config     108.00 KiB
+employees   72.00 KiB
+local       72.00 KiB
+pankajdb     8.00 KiB
+practicedb> use pankajdb
+switched to db pankajdb
+pankajdb> db.dropDatabase()
+{ ok: 1, dropped: 'pankajdb' }
+pankajdb> show dbs
+admin       40.00 KiB
+config     108.00 KiB
+employees   72.00 KiB
+local       72.00 KiB
+pankajdb>
+
+
+-----------------------------------------------------------------------------------------------------
+
+
+To create or insert documents into a collection, you use the insertOne() or insertMany() methods.
+
+show collections --> used to show how many collections are ther in that db
+
+# example of one insertion in justcollection
+
+
+
+ db.justcollection.insertOne({
+... "name":"john",
+... "role":"animator"
+... });
+
+-------------------------------------------------------------
+
+// Insert a single document into the "users" collection
+db.users.insertOne({
+    "name": "John",
+    "age": 30,
+    "email": "john@example.com"
+});
+
+
+
+// Insert multiple documents into the "users" collection
+db.users.insertMany([
+    {
+        "name": "Alice",
+        "age": 25,
+        "email": "alice@example.com"
+    },
+    {
+        "name": "Bob",
+        "age": 35,
+        "email": "bob@example.com"
+    }
+]);
+
+-------------------------------------------------------------
+
+# insertion query
+
+db.inventory.insertOne(
+   { item: "canvas", qty: 100, tags: ["cotton"], size: { h: 28, w: 35.5, uom: "cm" } }
+)
+
+
+-------------------------------------------------------------
+
+db.justcollection.insertMany([
+   { item: "journal", qty: 25, tags: ["blank", "red"], size: { h: 14, w: 21, uom: "cm" } },
+   { item: "mat", qty: 85, tags: ["gray"], size: { h: 27.9, w: 35.5, uom: "cm" } },
+   { item: "mousepad", qty: 25, tags: ["gel", "blue"], size: { h: 19, w: 22.85, uom: "cm" } }
+])
+
+
+------------------------------------------------------------
+
+
+# Switch to the desired database
+use your_database_name
+
+# List collections in the database
+show collections
+
+# Select a collection (for example, 'users')
+db.users.find()
+Replace <database_name> with the name of your database and users with the name of the collection you want to select.
+
+------------------------------------------------------------------------------------
+
+
+#Read part starts here -- find
+
+show collections --> used to show how many collections are ther in that db
+
+
+db.justcollection.find()  --> shows all the documents present in one collection
+
+db.inventory.find( {} ) -- > same yahi hai
+
+
+
+db.justcollection.find({qty:25}) --> jinki qty 25 hi wo sabhi dikh jayenge
+
+
+db.justcollection.find({ tags: { $in: ["red","cotton"]}})  -- to show the array containing elements
+
+
+------------------------------------------------------------------------------------------
+
+# AND operator
+
+
+ db.justcollection.find( { status: "D" } )     --> khali, sirf single object utha rha hai
+
+ db.justcollection.find( { status: { $in: [ "A", "D" ] } } )    --> and operator , 2 objects utha rha hai
+
+
+
+db.justcollection.find( { status: "A", qty: 45 } )    --> just find a and b
+
+db.justcollection.find( { status: "A", qty: { $lt: 30 } } )    --> this is also a way to execute and operator , no need to specify explicitly and $lt means lower than here find a and lower than b thats why { $lt: 30 }
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+# OR operator -- needs to be specified explicitly
+
+db.justcollection.find( { $or: [ { status: "A" }, { qty: { $lt: 30 } } ] } )
+
+
+db.justcollection.findOne( { $or: [ { status: "A" }, { qty: { $lt: 30 } } ] } )   ---> to get single document
+
+
+-------------------------------------------------------------------------------------------------------------
+
+# Update method --- one , many , replace
+
+
+
+db.collection.updateOne(<filter>, <update>, <options>)
+
+db.collection.updateMany(<filter>, <update>, <options>)
+
+db.collection.replaceOne(<filter>, <update>, <options>)
+
+
+
+  db.justcollection.updateOne(
+...    { item: "paper" },
+...    {
+...      $set: { "size.uom": "cm", status: "P" },
+...      $currentDate: { lastModified: true }
+...    }
+... )
+
+# it finds item with paper and sets the size and statu and alos adds lastmodified date (sirf pahla hi doc update  hoga baaki sab nahi honge)
+
+
+
+
+db.justcollection.updateMany(
+   { "qty": { $lt: 50 } },
+   {
+     $set: { "size.uom": "in", status: "P" },
+     $currentDate: { lastModified: true }
+   }
+)
+
+# it finds qty with less than 50 and sets size.uom to in and status to p and also adds current data(sab update hoga ) 
+
+
+
+
+db.users.replaceOne(
+   { _id: ObjectId("123456789012345678901234") }, // Filter
+   { name: "John", age: 30, email: "john@example.com" } // Replacement document
+)
+
+
+
+
+
+db.justcollection.replaceOne(
+   { item: "paper" },
+   { item: "paper", instock: [ { warehouse: "A", qty: 60 }, { warehouse: "B", qty: 40 } ] }
+)
+
+# finds the doc with paper and replaces the whole document
+
+------------------------------------------------------------------------------------------
+
+# Delete 
+
+
+db.collection.deleteMany()
+
+db.collection.deleteOne()
+
+
+db.inventory.deleteMany({})  ---> literally deletes everything
+
+db.justcollection.deleteOne({ status : "A"})
+
+db.justcollection.deleteMany({ qty : 50})
+
+
+
+-------------------------------------------------------------------------------------------------------
+
+
+Sorting
+
+
+
+// Sorting documents by age in ascending order
+
+db.justcollection.find().sort({ age: 1 });
+
+// Sorting documents by age in descending order
+
+db.justcollection.find().sort({ age: -1 });
+
+
+
+# some notes
+
+db.justcollection.find().skip(1) --> skips first document
+
+db.justcollection.find().skip(2) --> skips second document
+
+db.justcollection.find().limit(1) --> limits the number of documents in the ouput to 1
+
+db.justcollection.find().limit(2) --> limits the number of documents in the ouput to 2
+
+db.justcollection.find().limit(10).sort(1)  -- limits to 10 and sorts as well in ascending order
+
+
+
+
+
+
